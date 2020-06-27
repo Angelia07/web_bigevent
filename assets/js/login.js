@@ -32,7 +32,7 @@ $(function () {
     const username = $('#form_reg [name=username]').val();
     const password = $('#form_reg [name=password]').val();
     $.ajax({
-      url: 'http://127.0.0.1:3007/api/register',
+      url: '/api/register',
       type: 'post',
       data: {
         username,
@@ -57,7 +57,7 @@ $(function () {
     e.preventDefault();
     
     $.ajax({
-      url: 'http://127.0.0.1:3007/api/login',
+      url: '/api/login',
       type: 'post',
       data: $(this).serialize(),
       // dataType:'json',
@@ -66,7 +66,7 @@ $(function () {
         if(res.status===0){
           layer.msg(res.message);
           //进行跳转
-          // location.href='./index.html'
+          location.href='./index.html'
           //存储token
           localStorage.setItem('token',res.token)
         }else(

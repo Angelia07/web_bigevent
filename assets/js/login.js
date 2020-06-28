@@ -55,12 +55,13 @@ $(function () {
   //监听发起登录的请求
   $('#form_login').on('submit', function (e) {
     e.preventDefault();
+    console.log( $(this).serialize());
     
     $.ajax({
       url: '/api/login',
       type: 'post',
       data: $(this).serialize(),
-      // dataType:'json',
+      dataType:'json',
       success:function(res){
         console.log(res);
         if(res.status===0){

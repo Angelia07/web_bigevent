@@ -1,7 +1,7 @@
 
 $(function () {
     getUserInfo();
-    var layer = layui.layer;
+    const layer = layui.layer;
     $('.back').on('click', function () {
         layer.confirm('确定退出吗?', { icon: 3, title: '提示' }, function (index) {
             localStorage.removeItem('token')
@@ -11,6 +11,9 @@ $(function () {
         // console.log('ok');
     })
 })
+
+
+
 function getUserInfo() {
     $.ajax({
         type: 'get',
@@ -23,13 +26,7 @@ function getUserInfo() {
                 layui.layer.msg(res.msg)
             }
         },
-        complete:function(res){
-      
-      if(res.responseJSON.status===1&&res.responseJSON.message==="身份认真失败!"){
-          localStorage.removeItem('token');
-          location.href='./login.html'
-      }
-        }
+        
     })
 }
 function renderAvatar(user) {

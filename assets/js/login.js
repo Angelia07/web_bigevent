@@ -55,22 +55,22 @@ $(function () {
   //监听发起登录的请求
   $('#form_login').on('submit', function (e) {
     e.preventDefault();
-    console.log( $(this).serialize());
-    
+    console.log($(this).serialize());
+
     $.ajax({
       url: '/api/login',
       type: 'post',
       data: $(this).serialize(),
-      dataType:'json',
-      success:function(res){
+      dataType: 'json',
+      success: function (res) {
         console.log(res);
-        if(res.status===0){
+        if (res.status === 0) {
           layer.msg(res.message);
           //进行跳转
-          location.href='./index.html'
+          location.href = './index.html'
           //存储token
-          localStorage.setItem('token',res.token)
-        }else(
+          localStorage.setItem('token', res.token)
+        } else (
           layer.msg(res.message)
         )
 
